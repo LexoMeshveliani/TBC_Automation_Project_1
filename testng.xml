@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="cross-device-suite" thread-count="2" parallel="tests">
+
+
+
+    <test name="mobile-test">
+        <parameter name="device" value="mobile"/>
+        <classes>
+            <class name="ge.tbc.testautomation.tests.FilterLocationsByCityAndTypeTest"/>
+        </classes>
+    </test>
+<!--
+    <test name="desktop-test">
+        <parameter name="device" value="desktop"/>
+        <classes>
+            <class name="ge.tbc.testautomation.tests.FilterLocationsByCityAndTypeTest"/>
+        </classes>
+    </test>
+-->
+</suite>

@@ -18,5 +18,9 @@ public class HomePage {
             return $(withText("ჩემთვის"));
         }
     }
+    public SelenideElement acceptCookieButton = $x("//button[contains(text(),'თანხმობა')]");
+
     public SelenideElement locationsButton = $(withText("მისამართები"));
+
+    public SelenideElement convertorButton = $(withText("ვალუტის კურსები"));
 }

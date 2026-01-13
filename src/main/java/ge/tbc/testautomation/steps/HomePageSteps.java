@@ -27,4 +27,18 @@ public class HomePageSteps {
             homePage.locationsButton.shouldBe(Condition.visible).hover().click();
         }
     }
+
+    public void acceptCookie(){
+        homePage.acceptCookieButton.click();
+    }
+
+    public void redirectToConvertor() {
+        if (TestContext.isMobile) {
+            homePage.convertorButton.should(Condition.exist);
+            executeJavaScript("arguments[0].click();", homePage.convertorButton);
+        } else {
+            homePage.convertorButton.shouldBe(Condition.visible).hover().click();
+        }
+    }
+
 }

@@ -6,4 +6,6 @@ public class Constants {
     public static final String CITY_NAME = "თბილისი";
     public static final String LOCATION_INPUT = "მარჯანიშვილი";
     public static final String LOCATION_TYPE = "ბანკომატი";
+
+    public static final int INPUT_VALUE = 100;
 }

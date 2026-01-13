@@ -18,13 +18,13 @@ public class ValidateLiveCurrencyConversionAccuracy extends BaseTest {
         homePageSteps.redirectToConvertor();
     }
 
-    @Test(description = "Step 2: Input Amount", priority = 2,
+    @Test(description = "Input Amount", priority = 2,
             dataProvider = "currencyData", dataProviderClass = CurrencyProvider.class)
     public void inputAmount(String currency, double buyRate) {
         convertorSteps.convertForeignToGel(currency, Constants.INPUT_VALUE);
     }
 
-    @Test(description = "Step 3: Verify Calculation", priority = 3,
+    @Test(description = "Verify Calculation", priority = 3,
             dataProvider = "currencyData", dataProviderClass = CurrencyProvider.class)
     public void verifyCalculation(String currency, double buyRate) {
         int nominal = 1;

@@ -41,4 +41,14 @@ public class HomePageSteps {
         }
     }
 
+    public void redirectToAccounting() {
+        if (TestContext.isMobile) {
+            homePage.tbcButton.shouldBe(Condition.visible).click();
+            homePage.accountingButton.shouldBe(Condition.visible).click();
+        } else {
+            homePage.tbcButtonDesk.shouldBe(Condition.visible).hover();
+            homePage.accountingButton.shouldBe(Condition.visible).click();
+        }
+    }
+
 }

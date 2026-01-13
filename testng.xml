@@ -5,19 +5,19 @@
     <test name="desktop-test">
         <parameter name="device" value="desktop"/>
         <classes>
-            <class name="ge.tbc.testautomation.tests.FilterLocationsByCityAndTypeTest"/>
-            <class name="ge.tbc.testautomation.tests.ValidateLiveCurrencyConversionAccuracy"/>
+            <class name="ge.tbc.testautomation.tests.ValidateYOYFinancialReportAccessibility"/>
+
         </classes>
     </test>
 
 <!--
-    <test name="mobile-test">
+
+<test name="mobile-test">
         <parameter name="device" value="mobile"/>
         <classes>
             <class name="ge.tbc.testautomation.tests.FilterLocationsByCityAndTypeTest"/>
             <class name="ge.tbc.testautomation.tests.ValidateLiveCurrencyConversionAccuracy"/>
         </classes>
     </test>
-
 -->
 </suite>

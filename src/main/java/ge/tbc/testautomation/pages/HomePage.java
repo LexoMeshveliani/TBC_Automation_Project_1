@@ -23,4 +23,10 @@ public class HomePage {
     public SelenideElement locationsButton = $(withText("მისამართები"));
 
     public SelenideElement convertorButton = $(withText("ვალუტის კურსები"));
+
+    public SelenideElement tbcButton = $x("//button[text()=' თიბისი ']");
+
+    public SelenideElement tbcButtonDesk = $x("//div[text()=' თიბისი ']");
+
+    public SelenideElement accountingButton = $(withText("ფინანსური ანგარიშგება"));
 }

@@ -34,11 +34,10 @@ public class ValidateYOYFinancialReportAccessibility extends BaseTest{
         steps.downloadPdfReport(page.csrContainer, "2023");
     }
 
-    @Test(description="Validate CSR and Sustainable Development Reports")
+    @Test(description="Validate CSR and Sustainable Development Reports", priority = 5)
     void validateSustainableDevelopmentReports() {
         steps.downloadPdfReport(page.sustainableContainer, "2024");
         steps.downloadPdfReport(page.sustainableContainer, "2023");
 
-        sleep(5000);
     }
 }

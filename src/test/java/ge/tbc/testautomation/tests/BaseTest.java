@@ -1,9 +1,11 @@
 package ge.tbc.testautomation.tests;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.WebDriverRunner;
 import ge.tbc.testautomation.constants.Constants;
-import ge.tbc.testautomation.steps.HomePageSteps;
+import ge.tbc.testautomation.steps.*;
 import ge.tbc.testautomation.utils.TestContext;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.*;
@@ -13,26 +15,36 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class BaseTest {
     HomePageSteps homePageSteps = new HomePageSteps();
+    ITAcademySteps steps = new ITAcademySteps();
+    CommonStep commonStep = new CommonStep();
+    LocationsPageSteps locationsPageSteps = new LocationsPageSteps();
+    ConvertorPageSteps convertorSteps = new ConvertorPageSteps();
+
 
     @Parameters(value = "device")
     @BeforeClass
     public void setUp(String device){
+        TestContext.setDevice(device);
+
         Configuration.browser = "chrome";
-        TestContext.isMobile = device.equalsIgnoreCase("mobile");
-        if (TestContext.isMobile){
-            Configuration.browserSize = "430x932";
-        }
-        else {
-            ChromeOptions options = new ChromeOptions();
-            options.addArguments("--start-maximized");
-            Configuration.browserCapabilities = options;
-        }
-
         open(Constants.TBC_URL);
+
+        if (TestContext.isMobile()){
+            WebDriverRunner.getWebDriver().manage().window().setSize(new Dimension(430, 932));
+        } else {
+            WebDriverRunner.getWebDriver().manage().window().setSize(new Dimension(1366, 768));
+        }
     }
 
-    @AfterClass
+
+    @AfterClass(alwaysRun = true)
     public void tearDown(){
-        closeWebDriver();
+        try {
+            webdriver().object().manage().deleteAllCookies();
+        } finally {
+            closeWebDriver();
+            TestContext.clear();
+        }
     }
+
 }

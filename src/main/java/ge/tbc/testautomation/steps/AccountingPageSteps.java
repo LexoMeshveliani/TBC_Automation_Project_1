@@ -14,9 +14,7 @@ public class AccountingPageSteps {
     AccountingPage page = new AccountingPage();
 
     public void scrollToContainer(SelenideElement container) {
-        // 1. Scroll the element to the top
         container.scrollTo();
-        // 2. Move the window back up by 150px (height of the navigation bar)
         Selenide.executeJavaScript("window.scrollBy(0, -150);");
     }
 

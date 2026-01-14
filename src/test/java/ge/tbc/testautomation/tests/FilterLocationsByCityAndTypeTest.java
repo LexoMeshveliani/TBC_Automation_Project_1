@@ -8,11 +8,12 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class FilterLocationsByCityAndTypeTest extends BaseTest{
-    LocationsPageSteps locationsPageSteps = new LocationsPageSteps();
+
 
     @Test(description = "Open locations page", priority = 1)
     public void openLocationsPage(){
-        homePageSteps.openNavigation();
+        homePageSteps.acceptCookie();
+        commonStep.openNavigation();
         homePageSteps.redirectToLocations();
     }
 

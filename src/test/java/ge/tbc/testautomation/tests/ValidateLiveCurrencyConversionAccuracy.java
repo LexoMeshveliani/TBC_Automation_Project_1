@@ -9,12 +9,12 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 
 public class ValidateLiveCurrencyConversionAccuracy extends BaseTest {
-    ConvertorPageSteps convertorSteps = new ConvertorPageSteps();
+
 
     @Test(description = "Step 1: Locate Converter", priority = 1)
     public void locateConvertor() {
         homePageSteps.acceptCookie();
-        homePageSteps.openNavigation();
+        commonStep.openNavigation();
         homePageSteps.redirectToConvertor();
     }
 

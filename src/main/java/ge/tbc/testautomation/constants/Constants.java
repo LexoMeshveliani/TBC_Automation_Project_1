@@ -8,4 +8,6 @@ public class Constants {
     public static final String LOCATION_TYPE = "ბანკომატი";
 
     public static final int INPUT_VALUE = 100;
+
+    public static final String COURSE_STATUS = "რეგისტრაცია დასრულებულია";
 }

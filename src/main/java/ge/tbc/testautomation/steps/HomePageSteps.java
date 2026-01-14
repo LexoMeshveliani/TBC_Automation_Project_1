@@ -9,18 +9,10 @@ import java.time.Duration;
 
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 
-public class HomePageSteps {
+public class HomePageSteps extends CommonStep{
     HomePage homePage = new HomePage();
-    public void openNavigation(){
-        if(TestContext.isMobile){
-            homePage.initializeNavigation().click();
-        }
-        else{
-            homePage.initializeNavigation().hover();
-        }
-    }
     public void redirectToLocations() {
-        if (TestContext.isMobile) {
+        if (TestContext.isMobile()) {
             homePage.locationsButton.should(Condition.exist);
             executeJavaScript("arguments[0].click();", homePage.locationsButton);
         } else {
@@ -28,12 +20,8 @@ public class HomePageSteps {
         }
     }
 
-    public void acceptCookie(){
-        homePage.acceptCookieButton.click();
-    }
-
     public void redirectToConvertor() {
-        if (TestContext.isMobile) {
+        if (TestContext.isMobile()) {
             homePage.convertorButton.should(Condition.exist);
             executeJavaScript("arguments[0].click();", homePage.convertorButton);
         } else {
@@ -42,12 +30,26 @@ public class HomePageSteps {
     }
 
     public void redirectToAccounting() {
-        if (TestContext.isMobile) {
+        if (TestContext.isMobile()) {
             homePage.tbcButton.shouldBe(Condition.visible).click();
             homePage.accountingButton.shouldBe(Condition.visible).click();
         } else {
             homePage.tbcButtonDesk.shouldBe(Condition.visible).hover();
             homePage.accountingButton.shouldBe(Condition.visible).click();
+        }
+    }
+
+    public void redirectToITAcademy(){
+        if(TestContext.isMobile()) {
+            homePage.tbcButton.shouldBe(Condition.visible).click();
+            homePage.educationDropdown
+                    .shouldBe(Condition.interactable, Duration.ofSeconds(5))
+                    .click();
+            homePage.itAcademyButton.shouldBe(Condition.visible).click();
+        }
+        else{
+            homePage.tbcButtonDesk.hover();
+            homePage.itAcademyButtonDesk.click();
         }
     }
 

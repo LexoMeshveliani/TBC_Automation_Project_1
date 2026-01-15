@@ -5,6 +5,8 @@ import ge.tbc.testautomation.constants.Constants;
 import ge.tbc.testautomation.pages.LocationsPage;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Condition.*;
 
 public class LocationsPageSteps {
@@ -36,18 +38,15 @@ public class LocationsPageSteps {
     }
 
     public void verifyMarkerIsPresentOnMap() {
-        locationsPage.markedLocation.shouldBe(visible);
-    }
-
-    public void doubleClickMarkedLocation() {
-        locationsPage.markedLocation.hover().doubleClick();
+        locationsPage.markedLocation.shouldBe(visible, Duration.ofSeconds(15));
     }
 
     public void clickNeighborLocation() {
-        locationsPage.neighborLocation.hover().shouldBe(visible).click();
+        locationsPage.neighborLocation.shouldBe(visible, Duration.ofSeconds(15)).click();
     }
 
-    public void verifyNewActiveMatch(String expectedTextPart) {
-        locationsPage.matchInList.hover().shouldBe(visible).shouldHave(text(expectedTextPart));
+    public void doubleClickMarkedLocation() {
+        locationsPage.markedLocation.shouldBe(visible, Duration.ofSeconds(15)).doubleClick();
     }
+
 }

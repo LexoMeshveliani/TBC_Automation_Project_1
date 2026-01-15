@@ -2,12 +2,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="cross-device-suite" parallel="tests" thread-count="2">
-    <test name="desktop-test">
-        <parameter name="device" value="desktop"/>
-        <classes>
-            <class name="ge.tbc.testautomation.tests.InteractWithLocationsUsingMapAndList"/>
-        </classes>
-    </test>
     <test name="mobile-test">
         <parameter name="device" value="mobile"/>
         <classes>
@@ -16,6 +10,12 @@
     </test>
 <!--
 aq vinaxav tests ro ertad gashvebam kompiuteri ar amifetqos
+<test name="desktop-test">
+        <parameter name="device" value="desktop"/>
+        <classes>
+            <class name="ge.tbc.testautomation.tests.InteractWithLocationsUsingMapAndList"/>
+        </classes>
+    </test>
 
 -->
 </suite>

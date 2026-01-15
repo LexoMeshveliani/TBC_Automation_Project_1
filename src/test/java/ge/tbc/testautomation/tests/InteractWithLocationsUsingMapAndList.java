@@ -1,9 +1,14 @@
 package ge.tbc.testautomation.tests;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
+
 public class InteractWithLocationsUsingMapAndList extends BaseTest{
+
     @Test(description = "Open locations page", priority = 1)
     public void openLocationsPage(){
         homePageSteps.openNavigation();

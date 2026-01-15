@@ -11,7 +11,7 @@ public class ValidateYOYFinancialReportAccessibility extends BaseTest{
 
     @Test(description = "navigate to Financial Reports page", priority = 1)
     public void locateAccaunting() {
-        commonStep.cookieEater();
+        commonStep.openNavigation();
         homePageSteps.redirectToAccounting();
     }
 

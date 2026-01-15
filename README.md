@@ -108,3 +108,17 @@ This suite focuses on **high-traffic, reputation-sensitive journeys** where regr
 - Users may see a highlighted map point but the list remains on a different item, causing navigation to the wrong branch/ATM.
 
 By explicitly treating mobile as a distinct UX (different interaction model + timing), the suite avoids “desktop-only correctness” and validates the real customer experience.
+
+---
+
+## 4. Test Execution (Cross-device suites)
+
+To keep execution predictable and lightweight, the project uses **multiple TestNG suite XML files**, each running **one test class** in **parallel on desktop and mobile**.
+
+- Suite XML files are stored under: `testngSuits/`
+- Each suite defines two `<test>` blocks:
+    - `desktop-test` with `device=desktop`
+    - `mobile-test` with `device=mobile`
+- The suite is configured with `parallel="tests"` so desktop and mobile run at the same time, while keeping the scenario itself isolated.
+
+This structure improves stability (no cross-scenario state leakage) and makes it easy to run a single scenario on both device profiles.

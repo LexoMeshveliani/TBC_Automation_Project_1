@@ -12,7 +12,6 @@ public class FilterLocationsByCityAndTypeTest extends BaseTest{
 
     @Test(description = "Open locations page", priority = 1)
     public void openLocationsPage(){
-        homePageSteps.acceptCookie();
         commonStep.openNavigation();
         homePageSteps.redirectToLocations();
     }

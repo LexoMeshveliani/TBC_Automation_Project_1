@@ -2,8 +2,7 @@ package ge.tbc.testautomation.tests;
 
 import com.codeborne.selenide.Condition;
 import ge.tbc.testautomation.constants.Constants;
-import ge.tbc.testautomation.constants.CurrencyProvider;
-import ge.tbc.testautomation.steps.ConvertorPageSteps;
+import ge.tbc.testautomation.utils.CurrencyProvider;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
@@ -13,7 +12,6 @@ public class ValidateLiveCurrencyConversionAccuracy extends BaseTest {
 
     @Test(description = "Step 1: Locate Converter", priority = 1)
     public void locateConvertor() {
-        homePageSteps.acceptCookie();
         commonStep.openNavigation();
         homePageSteps.redirectToConvertor();
     }
@@ -27,28 +25,14 @@ public class ValidateLiveCurrencyConversionAccuracy extends BaseTest {
     @Test(description = "Verify Calculation", priority = 3,
             dataProvider = "currencyData", dataProviderClass = CurrencyProvider.class)
     public void verifyCalculation(String currency, double buyRate) {
-        int nominal = 1;
-
-        if ("JPY".equalsIgnoreCase(currency)) {
-            nominal = 100;
-        } else if ("CNY".equalsIgnoreCase(currency)
-                || "PLN".equalsIgnoreCase(currency)
-                || "ILS".equalsIgnoreCase(currency)) {
-            nominal = 10;
-        }
-
-        double expectedGel = (Constants.INPUT_VALUE * buyRate) / nominal;
-
-        String formattedValue = String.format("%.2f", expectedGel);
-        if (formattedValue.contains(".")) {
-            formattedValue = formattedValue.replaceAll("0*$", "").replaceAll("\\.$", "");
-        }
-
         convertorSteps.convertForeignToGel(currency, Constants.INPUT_VALUE);
 
+        String expected = convertorSteps.expectedGelValue(currency, Constants.INPUT_VALUE, buyRate);
+
         convertorSteps.getGelAmountField()
-                .shouldHave(Condition.value(formattedValue), Duration.ofSeconds(5));
+                .shouldHave(Condition.value(expected), Duration.ofSeconds(5));
     }
+
 }
 
 

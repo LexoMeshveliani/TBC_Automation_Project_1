@@ -26,7 +26,6 @@ public class ITAcademySteps {
             SelenideElement container = itPage.courseContainers.get(i);
 
             container.hover();
-            String status = itPage.getStatusLabel(container).getText().trim();
 
             container.click();
 

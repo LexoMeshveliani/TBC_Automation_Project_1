@@ -3,6 +3,7 @@ package ge.tbc.testautomation.tests;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 import ge.tbc.testautomation.constants.Constants;
+import ge.tbc.testautomation.pages.AccountingPage;
 import ge.tbc.testautomation.steps.*;
 import ge.tbc.testautomation.utils.TestContext;
 import org.openqa.selenium.Dimension;
@@ -19,6 +20,8 @@ public class BaseTest {
     CommonStep commonStep = new CommonStep();
     LocationsPageSteps locationsPageSteps = new LocationsPageSteps();
     ConvertorPageSteps convertorSteps = new ConvertorPageSteps();
+    AccountingPageSteps accountingPageSteps = new AccountingPageSteps();
+    AccountingPage page = new AccountingPage();
 
 
     @Parameters(value = "device")
@@ -34,6 +37,8 @@ public class BaseTest {
         } else {
             WebDriverRunner.getWebDriver().manage().window().setSize(new Dimension(1366, 768));
         }
+
+        commonStep.cookieEater();
     }
 
 

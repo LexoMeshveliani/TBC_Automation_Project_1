@@ -14,7 +14,7 @@ public class HomePage{
 
     public SelenideElement navigationForMe = $x("//div[contains(text(),'ჩემთვის')]");
 
-    public SelenideElement acceptCookieButton = $x("//button[contains(text(),'უარყოფა')]");
+    public SelenideElement rejectCookieButton = $x("//button[contains(text(),'უარყოფა')]");
 
     public SelenideElement locationsButton = $(withText("მისამართები"));
 

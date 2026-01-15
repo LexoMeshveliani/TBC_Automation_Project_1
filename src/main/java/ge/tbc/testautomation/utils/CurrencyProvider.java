@@ -1,12 +1,10 @@
-package ge.tbc.testautomation.constants;
+package ge.tbc.testautomation.utils;
 
 import com.codeborne.selenide.Condition;
 import ge.tbc.testautomation.pages.ConvertorPage;
 import org.testng.annotations.DataProvider;
 
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.List;
 
 public class CurrencyProvider {
     ConvertorPage convertorPage = new ConvertorPage();

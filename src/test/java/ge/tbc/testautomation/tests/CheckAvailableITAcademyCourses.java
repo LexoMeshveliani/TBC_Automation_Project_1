@@ -12,7 +12,6 @@ public class CheckAvailableITAcademyCourses extends BaseTest{
 
     @Test(description = "navigate to IT academy page", priority = 1)
     public void NavigateToEducation() {
-        homePageSteps.acceptCookie();
         commonStep.openNavigation();
         homePageSteps.redirectToITAcademy();
     }

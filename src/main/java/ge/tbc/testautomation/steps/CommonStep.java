@@ -10,9 +10,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class CommonStep {
     HomePage homePage = new HomePage();
 
-
-
-
     public void openNavigation(){
         if(TestContext.isMobile()){
             homePage.burgerMenu.shouldBe(Condition.visible).click();
@@ -22,7 +19,7 @@ public class CommonStep {
         }
     }
 
-    public void acceptCookie(){
-        homePage.acceptCookieButton.shouldBe(Condition.visible).click();
+    public void cookieEater(){
+        homePage.rejectCookieButton.shouldBe(Condition.visible).click();
     }
 }
